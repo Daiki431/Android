@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Kadai5_3B11KS</string>
+    <string name="name">名前</string>
+    <string name="address">住所</string>
+    <string name="tel">電話番号</string>
+    <string name="email">E-Mail</string>
+    <string name="hobby">趣味</string>
+    <string name="add">追加</string>
+</resources>
