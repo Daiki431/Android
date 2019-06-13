@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
@@ -26,15 +27,28 @@ public class AddressActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_address);
 
+        Button btAddressAdd = findViewById(R.id.addressAddOption);
+        AddItemClickListener addListener = new AddItemClickListener();
+        //btAddressAdd.setOnClickListener(addListener);
         _lvAdd = findViewById(R.id.lvAddress);
         _addList = createAddList();
         SimpleAdapter adapter = new SimpleAdapter(AddressActivity.this,_addList,R.layout.row,FROM,TO);
         _lvAdd.setAdapter(adapter);
         _lvAdd.setOnItemClickListener(new ListItemClickListener());
-        Button btAddressAdd = findViewById(R.id.addressAddOption);
 
+    }
 
+    class AddItemClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
 
+        }
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item){
+        Intent intent = new Intent(AddressActivity.this,AddActivity.class);
+        startActivity(intent);
+        return true;
     }
 
     private List<Map<String,Object>> createAddList(){
@@ -86,12 +100,4 @@ public class AddressActivity extends AppCompatActivity {
         return  super.onCreateOptionsMenu(menu);
     }
 
-    class AddClickListener implements AdapterView.OnItemClickListener {
-
-        @Override
-        public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-            Intent intent = new Intent(AddressActivity.this, AddActivity.class);
-            startActivity(intent);
-        }
-    }
 }
