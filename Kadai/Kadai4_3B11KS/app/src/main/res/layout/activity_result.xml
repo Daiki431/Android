@@ -40,11 +40,5 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content" />
 
-        <Button
-            android:id="@+id/btBack"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:onClick="onBackButtonClick"
-            android:text="@string/back" />
     </LinearLayout>
 </android.support.constraint.ConstraintLayout>

@@ -2,8 +2,9 @@ package com.example.kadai4_3b11ks;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.TextView;
 
 public class ResultActivity extends AppCompatActivity {
@@ -26,14 +27,22 @@ public class ResultActivity extends AppCompatActivity {
         TextView tvMail = findViewById(R.id.tvE_Mail);
         TextView tvHobby = findViewById(R.id.tvHobby);
 
-        tvName.setText("名前："+name);
-        tvAddress.setText("住所："+address);
-        tvTel.setText("電話"+tel);
-        tvMail.setText("E-Mail："+mail);
-        tvHobby.setText("趣味："+hobby);
+        tvName.setText("名前：" + name);
+        tvAddress.setText("住所：" + address);
+        tvTel.setText("電話" + tel);
+        tvMail.setText("E-Mail：" + mail);
+        tvHobby.setText("趣味：" + hobby);
+
+        ActionBar actionBar = getSupportActionBar();
+        actionBar.setDisplayHomeAsUpEnabled(true);
     }
 
-    public void onBackButtonClick(View view){
-        finish();
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        int itemId = item.getItemId();
+        if (itemId == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 }
